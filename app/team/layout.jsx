@@ -5,13 +5,15 @@ export default function TeamLayout({ children }) {
     <div className="flex h-screen">
         <nav className="w-1/4 bg-gray-900 text-white p-8">
             <ul className="space-y-4">
-                <li><Link href="#">Fulanito</Link></li>
-                <li><Link href="#">Sutanito</Link></li>
-                <li><Link href="#">Menganito</Link></li>
-                <li><Link href="#">Perencejito</Link></li>
+                <li><Link href="#" className="block p-2">Fulanito</Link></li>
+                <li><Link href="#" className="block p-2">Sutanito</Link></li>
+                <li><Link href="#" className="block p-2">Menganito</Link></li>
+                <li><Link href="#" className="block p-2">Perencejito</Link></li>
             </ul>
         </nav>
-      {children}
+        <main className="flex-1 p-10">
+          {children}
+        </main>
     </div>
   );
 
