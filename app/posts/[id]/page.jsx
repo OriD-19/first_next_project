@@ -1,12 +1,24 @@
-"use client"
-import { useRouter } from 'next/router'
-import React, { use } from 'react'
+import React  from 'react'
 
-const PostDetailsPage = ({ params }) => {
+async function getPostDetails(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  const data = await res.json();
+  return data;
+}
 
-  const { id } = use(params);
+const PostDetailsPage = async ({ params }) => {
+
+  const { id } = await params;
+  const postDetails = await getPostDetails(id);
+
   return (
-    <div>PostDetailsPage - {id}</div>
+    <>
+      <h1 className="text-4xl text-center text-gray-800 mb-8">
+        {postDetails.title}
+      </h1>
+
+      <p className="text-gray-700 text-base">{postDetails.body}</p>
+    </>
   )
 }
 
